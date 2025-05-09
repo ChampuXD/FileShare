@@ -37,6 +37,7 @@ class Bot(Client):
                     link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
                 self.invitelink = link
             except Exception as a:
+                self.LOGGER(__name__).error(f"Error accessing FORCE_SUB_CHANNEL: {FORCE_SUB_CHANNEL}")
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning("Bot Can't Export Invite link From Force Sub Channel!")
                 self.LOGGER(__name__).warning(f"Please Double Check The FORCE_SUB_CHANNEL Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
